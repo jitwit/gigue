@@ -36,3 +36,13 @@ linkv =: 4 : 0
   VISIBLE_jviewmat_ =: v
   link x
 )
+linkvbw =: 4 : 0
+  NB. x linkv y: black/white viewmat matrix y to file x. intended for
+  NB. org mode
+  v =. VISIBLE_jviewmat_
+  VISIBLE_jviewmat_ =: 0
+  (0 0 0,:255 255 255) viewmat y
+  2!:1 'cp ',(jpath '~user/temp/viewmat.png'),' ',x
+  VISIBLE_jviewmat_ =: v
+  link x
+)
